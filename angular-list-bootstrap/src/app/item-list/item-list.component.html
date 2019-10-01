@@ -1,0 +1,17 @@
+
+<h5>Add an item here:</h5>
+
+<!-- <input type="text" [value]="newItem" (input)="newItem = $event.target.value"/> -->
+<input type="text" class="form-control" [ngModel]="newItem" (ngModelChange)="newItem = $event"/>
+<button type="button" class="btn btn-success" (click)="addItem()"> add</button>
+
+<h5>Item List:</h5>
+
+<div class="card" style="">
+  <ul class="list-group list-group-flush">
+    <li *ngFor='let item of listService.items' class="list-group-item">{{ item }}</li>
+  </ul>
+</div>
+
+<br>
+<button type="button" class="btn btn-danger" (click)="listService.clear()"> clear </button>
